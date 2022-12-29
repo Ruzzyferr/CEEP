@@ -1,8 +1,10 @@
 package com.example.ceepproject.entity;
 
 import lombok.Data;
+import org.springframework.data.repository.cdi.Eager;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
@@ -13,10 +15,10 @@ public class ShopProducts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     private Shops shop;
 
-    @ManyToOne
+    @ManyToOne (fetch=FetchType.EAGER)
     private Products product;
 
     private int price;

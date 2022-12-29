@@ -1,17 +1,16 @@
 package com.example.ceepproject.dto;
-
-import com.example.ceepproject.entity.Products;
-import com.example.ceepproject.entity.Shops;
 import lombok.Data;
+
+import java.util.Set;
 
 @Data
 public class ShopProductsDTO {
 
     private int id;
 
-    private Shops shop;
+    private ShopsDTO shop;
 
-    private Products product;
+    private ProductDTO product;
 
     private int price;
 }

@@ -5,15 +5,16 @@ import com.example.ceepproject.entity.Shops;
 import lombok.Data;
 
 import javax.persistence.ManyToOne;
+import java.util.Set;
 
 @Data
 public class ShopProductsSaveRequestDTO {
 
     private int id;
 
-    private Shops shop;
+    private ShopsDTO shop;
 
-    private Products product;
+    private ProductDTO product;
 
     private int price;
 

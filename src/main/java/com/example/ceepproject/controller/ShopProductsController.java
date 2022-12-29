@@ -2,7 +2,6 @@ package com.example.ceepproject.controller;
 
 import com.example.ceepproject.dto.ShopProductsDTO;
 import com.example.ceepproject.dto.ShopProductsSaveRequestDTO;
-import com.example.ceepproject.entity.ShopProducts;
 import com.example.ceepproject.service.ShopProductsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,5 +28,7 @@ public class ShopProductsController {
 
         return new ResponseEntity<>(shopProductsDTO, HttpStatus.OK);
     }
+
+
 
 }
