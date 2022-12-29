@@ -18,7 +18,7 @@ public class ShopProducts {
     @ManyToOne(fetch=FetchType.EAGER)
     private Shops shop;
 
-    @ManyToOne (fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER)
     private Products product;
 
     private int price;
