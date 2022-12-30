@@ -37,26 +37,28 @@ public class ShopProductsService {
 
     public String cheapestShopAndTotal(List<Integer> product_id){
         List<Shops> shops = shopsRepository.findAll();
-        float total = 0;
+
+        float total = 1827;
+
         String cheapShop = "";
-        for (int i = 0; i < shops.size(); i++) {
+
+        for (Shops shops1 : shops) {
             float tempTotal = 0;
-            for(int j = 0; j < product_id.size(); j++){
+            for (Integer integer : product_id) {
                 ShopProducts shopProduct =
-                        shopsProductRepository.findByShopIdAndProductId(i, product_id.get(j));
-                if(shopProduct == null){
+                        shopsProductRepository.findByShopIdAndProductId(shops1.getId() , integer);
+                if (shopProduct == null) {
                     break;
                 }
-                    tempTotal = tempTotal + shopProduct.getPrice();
+                tempTotal = tempTotal + shopProduct.getPrice();
             }
             if(tempTotal < total){
                 total = tempTotal;
-                cheapShop = shopsRepository.findById(i).getName();
+                cheapShop = shopsRepository.findById(shops1.getId()).getName();
             }
         }
 
-        String message = "Cheapest shop is: " + cheapShop + "... and total price is: " + total;
-        return message;
+        return "Cheapest shop is: " + cheapShop + "... and total price is: " + total;
     }
 
 

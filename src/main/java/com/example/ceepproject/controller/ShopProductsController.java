@@ -1,5 +1,6 @@
 package com.example.ceepproject.controller;
 
+import com.example.ceepproject.dto.SearchProduct;
 import com.example.ceepproject.dto.ShopProductsDTO;
 import com.example.ceepproject.dto.ShopProductsSaveRequestDTO;
 import com.example.ceepproject.service.ShopProductsService;
@@ -30,8 +31,8 @@ public class ShopProductsController {
     }
 
     @GetMapping("/cheapest")
-    public ResponseEntity<String> cheapestShopAndTotal(@RequestBody List<Integer> productId){
-        String message = shopProductsService.cheapestShopAndTotal(productId);
+    public ResponseEntity<String> cheapestShopAndTotal(@RequestBody SearchProduct dto){
+        String message = shopProductsService.cheapestShopAndTotal(dto.getProduct());
 
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
